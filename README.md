@@ -1,4 +1,5 @@
-# TreeWeb
+<img src="logo.png">
+
 Fast web applications development framework for PHP
 
 ## Working on
@@ -15,7 +16,7 @@ Fast web applications development framework for PHP
 * Index
 * URL rewritting
 * Routing system
-* Nodes: page, php and directory mapping
+* Nodes: page, php, reference and directory mapping
 * Component system
 * Documentation site
 * Code documentation system
