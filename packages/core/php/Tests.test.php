@@ -21,14 +21,15 @@
     along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class Utils {
+Tests::add('Add a test', function(Test $t) {
+    $t->log("hola");
+});
 
-	static function json_encode() {
-		echo 'json_encoding...';
-	}
+Tests::add('Run all tests', function(Test $t) {
+    $t->log("This should run all tests");
+});
 
-	static function json_decode() {
-		echo '';
-	}
+Tests::add('Run only one test', function(Test $t) {
+    $t->error("This should run all tests");
+});
 
-}

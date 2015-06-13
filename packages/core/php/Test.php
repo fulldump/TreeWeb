@@ -21,14 +21,15 @@
     along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class Utils {
+class Test {
 
-	static function json_encode() {
-		echo 'json_encoding...';
-	}
+    public $messages = array();
 
-	static function json_decode() {
-		echo '';
-	}
+    public function log($message) {
+        $this->messages[] = $message;
+    }
 
+    public function error($message) {
+        throw new Exception($message);
+    }
 }

@@ -21,14 +21,38 @@
     along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class Utils {
+// include some things
+require_once 'main.php';
+import('core.Tests');
 
-	static function json_encode() {
-		echo 'json_encoding...';
-	}
+// remove this file name
+array_shift($argv);
 
-	static function json_decode() {
-		echo '';
-	}
+// search for -v option
+if (count($argv) && '-v' == $argv[0]) {
+    array_shift($argv);
+    Tests::$verbose = true;
+}
 
+// search for file option or show help
+if (0 == count($argv)) {
+    echo <<<HEREDOC
+Usage: php test [OPTION] <file name> [<test name>]
+
+OPTIONs:
+-v    Verbose mode
+
+
+HEREDOC;
+exit;
+} else {
+    include($argv[0]);
+    array_shift($argv);
+}
+
+// search for test name option
+if (0 == count($argv)) {
+    Tests::run();
+} else if (1 == count($argv)) {
+    Tests::run($argv[0]);
 }
