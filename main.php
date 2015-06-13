@@ -21,15 +21,14 @@
     along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-/*
-How to use `generate_import`:
+/**
+ * How to use `generate_import`:
 
 	// statically loaded files:
 	$statics = array(
-		'core.config',
-		'utils.json',
-		'utils.dom',
+	'core.config',
+	'utils.json',
+	'utils.dom',
 	);
 
 	// Generate importer:
@@ -38,18 +37,19 @@ How to use `generate_import`:
 	// Import files:
 	$import('utils.date');
 
-NOTICE: $import should be a global variable
-
-TODO: performance analysis
-
-TODO: static import with [[import package.a.b.c.file]]
-
-DESIGN NOTES: $statics is not accesible outside generate_import scope. 
-`$import` name is a convention, anyone can replace it (this is good and bad
-at the same time). Other approach to avoid overwritting could be a function
-called `import` with `$imported` as a static variable, and an optional
-parameter to indicate whether import or only mark as imported.
+ * NOTICE: $import should be a global variable
+ *
+ * TODO: performance analysis
+ *
+ * TODO: static import with [[import package.a.b.c.file]]
+ *
+ * DESIGN NOTES: $statics is not accesible outside generate_import scope.
+ * `$import` name is a convention, anyone can replace it (this is good and bad
+ * at the same time). Other approach to avoid overwritting could be a function
+ * called `import` with `$imported` as a static variable, and an optional
+ * parameter to indicate whether import or only mark as imported.
 */
+
 function generate_import($imported=array()) {
 	return function ($chain) use (&$imported) {
 		if (in_array($chain, $imported)) {
@@ -69,8 +69,10 @@ function generate_import($imported=array()) {
 	};
 }
 
-$import = generate_import();
-
-$import('core.A');
-
-echo A::sayHello();
+function import($chain) {
+	static $import93473a7344419b15c4219cc2b6c64c6f = null;
+	if (null === $import93473a7344419b15c4219cc2b6c64c6f) {
+		$import93473a7344419b15c4219cc2b6c64c6f = generate_import();
+	}
+	return $import93473a7344419b15c4219cc2b6c64c6f($chain);
+}
