@@ -1,13 +1,13 @@
-# <img src="logo.png">
+<img src="logo.png">
 
 TreeWeb is a fast web applications development framework for PHP.
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC autolink=true bracket=round -->
 
-- [Testing][testing]
-- [Working on...][working-on]
-- [Requirements][requirements]
-- [Milestones][milestones]
+- [Testing](#testing)
+- [Working on...](#working-on)
+- [Requirements](#requirements)
+- [Milestones](#milestones)
 
 <!-- /MarkdownTOC -->
 
