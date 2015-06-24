@@ -1,24 +1,28 @@
 <?php
 
 /*
-    TreeWeb
+	TreeWeb
 
-    Copyright 2015 Gerardo Óscar Jiménez Tornos <gerardooscarjt@gmail.com>
+	Copyright 2015 Gerardo Óscar Jiménez Tornos <gerardooscarjt@gmail.com>
 
-    This file is part of TreeWeb.
+	This file is part of TreeWeb.
 
-    TreeWeb is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	TreeWeb is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    TreeWeb is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU Affero General Public License for more details.
+	TreeWeb is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU Affero General Public License
-    along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU Affero General Public License
+	along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
+ * I am not proud of argument parsing in this file but this have to work ASAP.
 */
 
 // include some things
@@ -30,29 +34,43 @@ array_shift($argv);
 
 // search for -v option
 if (count($argv) && '-v' == $argv[0]) {
-    array_shift($argv);
-    Tests::$verbose = true;
+	array_shift($argv);
+	Tests::$verbose = true;
 }
 
 // search for file option or show help
 if (0 == count($argv)) {
-    echo <<<HEREDOC
-Usage: php test [OPTION] <file name> [<test name>]
+	// TODO: add this option when implemented:
+	// php test [OPTION] <dir name>
+	echo <<<HEREDOC
+Usage:
+php test [OPTION] <file name> [<test name>]
 
 OPTIONs:
 -v    Verbose mode
 
 
 HEREDOC;
-exit;
+	exit;
 } else {
-    include($argv[0]);
-    array_shift($argv);
+	$path = $argv[0];
+	if (is_file($path)) {
+		array_shift($argv);
+		include($path);
+	} else if (is_dir($path)) {
+		// TODO: implement this option
+		array_shift($argv);
+		echo "Testing directories will be implemented in the future.\n";
+		exit(0);
+	} else {
+		echo "You should pass a file name.\n";  // Or directory
+		exit(0);
+	}
 }
 
 // search for test name option
 if (0 == count($argv)) {
-    Tests::run();
+	Tests::run();
 } else if (1 == count($argv)) {
-    Tests::run($argv[0]);
+	Tests::run($argv[0]);
 }

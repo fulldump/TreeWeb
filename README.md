@@ -1,10 +1,15 @@
-<img src="logo.png">
+# <img src="logo.png">
 
-Fast web applications development framework for PHP
+TreeWeb is a fast web applications development framework for PHP.
 
-* [Testing](#testing)
-* [Working on](#working-on)
-* [Requirements](#requirements)
+<!-- MarkdownTOC -->
+
+- [Testing][testing]
+- [Working on...][working-on]
+- [Requirements][requirements]
+- [Milestones][milestones]
+
+<!-- /MarkdownTOC -->
 
 ## Testing
 
@@ -18,25 +23,42 @@ Sample test:
 
 ```php
 Tests::add('Test one', function($t) {
-    $t->log('You can log things');
+	$t->log('You can log things');
 });
 
 Tests::add('Test two', function($t) {
-    throw new Exception('accidental exception');
+	throw new Exception('accidental exception');
 });
 
 Tests::add('Test three', function($t) {
-    $_is_going_to_fail = true;
-    if ($_is_going_to_fail) {
-        $t->error('this should not fail');
-    }
+	$_is_going_to_fail = true;
+	if ($_is_going_to_fail) {
+		$t->error('this should not fail');
+	}
 });
 ```
 
-## Working on
+Useful way of developing with tests:
 
+```sh
+watch -n 1 php test file/you/want/to/test/file.test.php
+```
+
+Will execute tests each second:
+
+```text
+Every 1,0s: php test packages/core/php/Tests.test.php   Wed Jun 24 22:25:20 2015
+
+Create a row...OK
+Modify a row...OK
+Delete all rows...OK
+PASS
+```
+
+## Working on...
+
+* FileStore
 * Package system
-* Testing framework for php
 
 ## Requirements
 
@@ -59,3 +81,8 @@ Tests::add('Test three', function($t) {
 * Testing framework for javascript
 * Code minification: javascript and css
 * Third party libs integration
+
+## Milestones
+
+* Testing framework for php (very simple but functional version)
+
