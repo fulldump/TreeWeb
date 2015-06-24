@@ -2,6 +2,10 @@
 
 TreeWeb is a *fast web applications development framework* for PHP.
 
+All developing decisions taken in the TreeWeb follows two key principles: fast to develop and fast to execute.
+
+These are the reasons of several layers of caching, integrated online code editor, automatic code generation, component system, precompilation, convention instead of perfect theorical software architecture, hierarchical routing, etc.
+
 <!-- MarkdownTOC autolink=true bracket=round depth=4 -->
 
 - [Testing](#testing)
