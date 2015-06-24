@@ -57,7 +57,6 @@ PASS
 
 ## Working on...
 
-* FileStore
 * Package system
 
 ## Requirements
@@ -85,4 +84,5 @@ PASS
 ## Milestones
 
 * Testing framework for php (very simple but functional version)
+* Keep (old named FileStore)
 
