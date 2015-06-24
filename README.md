@@ -1,10 +1,12 @@
 <img src="logo.png">
 
-TreeWeb is a fast web applications development framework for PHP.
+TreeWeb is a *fast web applications development framework* for PHP.
 
-<!-- MarkdownTOC autolink=true bracket=round -->
+<!-- MarkdownTOC autolink=true bracket=round depth=4 -->
 
 - [Testing](#testing)
+- [STORM](#storm)
+    - [Database](#database)
 - [Working on...](#working-on)
 - [Requirements](#requirements)
 - [Milestones](#milestones)
@@ -53,6 +55,35 @@ Create a row...OK
 Modify a row...OK
 Delete all rows...OK
 PASS
+```
+
+## STORM
+
+STORM is the acronym for **S**imple **T**reeWeb **ORM**
+
+### Database
+
+Connect to a database. Typical usage:
+
+```php
+import('storm.Database');
+
+// Only the first time:
+Database::configure('localhost', 'my_db', 'root', '123456');
+
+// Perform a query:
+$cursor = Database::sql("SELECT * FROM Users");
+
+// Perform several queries (return the result for the last one):
+$cursor = Database::sql(array(
+    "INSERT INTO Users (Name) VALUES ('Fulanitez')",
+    "INSERT INTO Users (Name) VALUES ('Fulanitez')",
+    "SELECT * FROM Users",
+));
+
+// Escape values
+$search = Database::escape($_POST['search']);
+$cursor = Database::sql("SELECT * FROM Users WHERE Name Like '%$search%'");
 ```
 
 ## Working on...
