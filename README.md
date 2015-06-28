@@ -13,6 +13,9 @@ These are the reasons of several layers of caching, integrated online code edito
     - [Database](#database)
 - [Working on...](#working-on)
 - [Requirements](#requirements)
+    - [Tier 0](#tier-0)
+    - [Tier 1](#tier-1)
+    - [Tier 2](#tier-2)
 - [Milestones](#milestones)
 
 <!-- /MarkdownTOC -->
@@ -93,25 +96,29 @@ $cursor = Database::sql("SELECT * FROM Users WHERE Name Like '%$search%'");
 ## Working on...
 
 * Package system
+* Index
+* Main class
 
 ## Requirements
 
+### Tier 0
+
 * Package system
-* Configuration (two levels: global and by domain)
 * STORM integration + data origins
 * Main class
 * Index
-* URL rewritting
-* Routing system
-* Nodes: page, php, reference and directory mapping
 * Component system
+* Template system
+* Cache system
+
+### Tier 1
+* Image transcoding
+* Profiling tool
+* Trunk framework migration
+
+### Tier 2
 * Documentation site
 * Code documentation system
-* Profiling tool
-* Template system
-* Image transcoding
-* Cache system
-* Trunk framework migration
 * Testing framework for javascript
 * Code minification: javascript and css
 * Third party libs integration
@@ -121,3 +128,7 @@ $cursor = Database::sql("SELECT * FROM Users WHERE Name Like '%$search%'");
 * Testing framework for php (very simple but functional version)
 * Keep (old named FileStore)
 * TreeScript
+* URL rewritting
+* Routing system
+* Nodes: page, php, reference and directory mapping
+* Configuration (two levels: global and by domain)
