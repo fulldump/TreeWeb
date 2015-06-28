@@ -29,6 +29,10 @@ class Test {
 		$this->messages[] = $message;
 	}
 
+	public function print_r($object) {
+		$this->messages[] = print_r($object, true);
+	}
+
 	public function error($message) {
 		throw new Exception($message);
 	}
