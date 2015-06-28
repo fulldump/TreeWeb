@@ -1,0 +1,8 @@
+{
+    "name": "DEFAULT_PAGE",
+    "type": "STRING",
+    "description": "Home page",
+    "default": "index-page",
+    "callback_before": null,
+    "callback_after": null
+}

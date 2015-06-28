@@ -1,0 +1,8 @@
+{
+    "name": "403_PAGE",
+    "type": "STRING",
+    "description": "",
+    "default": "403-page",
+    "callback_before": null,
+    "callback_after": null
+}

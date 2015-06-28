@@ -1,0 +1,8 @@
+{
+    "name": "AVAILABLE_LANGUAGES",
+    "type": "STRING",
+    "description": "",
+    "default": "es,en,it,fr",
+    "callback_before": null,
+    "callback_after": null
+}
