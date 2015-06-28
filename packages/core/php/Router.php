@@ -127,7 +127,7 @@ class Router {
 	private static function _extract_language() {
 		$default_language = Config::get('DEFAULT_LANGUAGE');
 		$available_languages = explode(',', Config::get('AVAILABLE_LANGUAGES'));
-		$tentative_language = self::$parts[0];
+		$tentative_language = @self::$parts[0];
 		if ($tentative_language != $default_language && in_array($tentative_language, $available_languages)) {
 			array_shift(self::$parts);
 			self::$language = $tentative_language;

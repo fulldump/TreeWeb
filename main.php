@@ -21,7 +21,7 @@
     along with TreeWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/**
+/*
  * How to use `generate_import`:
 
 	// statically loaded files:
@@ -75,4 +75,27 @@ function import($chain) {
 		$import93473a7344419b15c4219cc2b6c64c6f = generate_import();
 	}
 	return $import93473a7344419b15c4219cc2b6c64c6f($chain);
+}
+
+import('core.Router');
+import('core.ControllerPhp');
+
+function go() {
+	$url = $_SERVER['REQUEST_URI'];
+
+	$hash = md5($url);
+
+	if (!(@include('cache/'.$hash))) {
+		Router::setUrl($url);
+
+		switch( Router::$node->getProperty('type')) {
+			case 'page':
+			case 'root':
+				ControllerPage::compile();
+				break;
+			case 'php':
+				ControllerPhp::compile();
+				break;
+		}
+	}
 }

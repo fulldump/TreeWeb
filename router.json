@@ -1,0 +1,43 @@
+<?php Router::$root = new Node(); Router::$root->fromArray(
+	array (
+		'id' => 'root',
+		'properties' => array (
+			'type' => 'root',
+			'permissions' => '[]',
+		),
+		'children' => array (
+			'index' => array (
+				'id' => 'index-page',
+				'properties' => array (
+					'type' => 'php',
+					'reference' => 'index-sample',
+					'permissions' => '["*"]',
+				),
+				'children' => array (
+				),
+			),
+		),
+	)
+); 
+
+/*
+array (
+	'id' => 'root',
+	'properties' => array (
+		'type' => 'root',
+		'permissions' => '[]',
+		),
+	'children' => array (
+		'__ajax__' => array (
+			'id' => 'cdd955001ad979dca1815ea94560ea3eeasw',
+			'properties' => array (
+				'type' => 'php',
+				'reference' => 'ajax',
+				'sitemap' => false,
+				'permissions' => '["*"]',
+				),
+			'children' => array (),
+			),
+		),
+	)
+	*/
