@@ -1,9 +1,9 @@
 <img src="logo.png">
 
 <p align="center">
-    <img src="https://travis-ci.org/GerardoOscarJT/TreeWeb.svg?branch=master">
+    <sup>Ready for PHP 5.3, 5.4, 5.5, 5.6, 7.0</sup>
     <br>
-    Ready for PHP 5.3, 5.4, 5.5, 5.6, 7.0
+    <img src="https://travis-ci.org/GerardoOscarJT/TreeWeb.svg?branch=master">
 </p>
 
 TreeWeb is a *fast web applications development framework* for PHP.
