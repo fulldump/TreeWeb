@@ -1,5 +1,7 @@
 <img src="logo.png">
 
+<img src="https://travis-ci.org/GerardoOscarJT/TreeWeb.svg?branch=master"> Ready for PHP 5.5, 5.6
+
 TreeWeb is a *fast web applications development framework* for PHP.
 
 All developing decisions taken in the TreeWeb follows two key principles: fast to develop and fast to execute.
