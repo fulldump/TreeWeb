@@ -61,16 +61,20 @@ HEREDOC;
 		// TODO: implement this option
 		array_shift($argv);
 		echo "Testing directories will be implemented in the future.\n";
-		exit(0);
+		exit(1);
 	} else {
 		echo "You should pass a file name.\n";  // Or directory
-		exit(0);
+		exit(1);
 	}
 }
 
 // search for test name option
 if (0 == count($argv)) {
-	Tests::run();
+	if (!Tests::run()) {
+		exit(2);
+	}
 } else if (1 == count($argv)) {
-	Tests::run($argv[0]);
+	if (!Tests::run($argv[0])) {
+		exit(2);
+	}
 }
