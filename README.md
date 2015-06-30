@@ -2,7 +2,7 @@
 
 <p align="center">
     <img src="https://travis-ci.org/GerardoOscarJT/TreeWeb.svg?branch=master">
-
+    <br>
     Ready for PHP 5.3, 5.4, 5.5, 5.6, 7.0
 </p>
 
